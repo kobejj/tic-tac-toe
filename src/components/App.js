@@ -10,6 +10,8 @@ import UpperLeft from './UpperLeft';
 import UpperRight from './UppperRight';
 import React, { useState } from 'react';
 
+
+
 const App = () => {
     const [valueUL, setValueUL] = useState(null);
     const [valueUC, setValueUC] = useState(null);
@@ -60,7 +62,7 @@ const App = () => {
 
 
     return (
-        <div>
+        <div className="ui container">
             <h4>App</h4>
             <table className="ui inverted table">
                 <tbody>
