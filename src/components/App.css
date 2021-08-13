@@ -1,0 +1,14 @@
+table, tbody, tr, td {
+    text-align: center;
+    height: 100px;
+    width: 100px;
+    font-size: large;
+}
+
+div {
+    border-color: blue;
+}
+
+table {
+    width: 70%;
+}
