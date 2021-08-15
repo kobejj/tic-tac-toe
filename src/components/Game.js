@@ -10,19 +10,25 @@ const Game = () => {
         [null, null, null],
     ]);
 
-    const handleClick = () => {
-        return setGameState(['X'])
-    }
+    const gameBoard = gameState.map((row, i) => {
 
-    const row = gameState.map((row, i) => {
         return (
-            <div>
+            <div key={i}>
                 {
                     row.map((squareValue, j) => {
+
+                        const handleClick = () => {
+                            console.log('click happened')
+                            const board = gameState;
+                            board[i][j] = 'X';
+                            setGameState(board)
+                        }
+
                         return (
-                            <Square 
+                            <Square
+                                key={`${i}-${j}`}
                                 value={squareValue}
-                                onClick={handleClick}
+                                onClick={() => handleClick()}
                             />
                         )
                     })
@@ -33,7 +39,7 @@ const Game = () => {
 
     return (
         <div className="ui container">
-            {row}
+            {gameBoard}
         </div>
     )
 }

@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import Game from './components/Game';
 
 ReactDOM.render(
-    <App />,
+    <Game />,
     document.querySelector('#root')
 );
