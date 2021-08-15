@@ -20,7 +20,7 @@ const Game = () => {
                         const handleClick = () => {
                             console.log('click happened')
                             const board = gameState;
-                            board[i][j] = 'X';
+                            //board[i][j] = 'X';
                             setGameState(board)
                         }
 
