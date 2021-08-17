@@ -15,7 +15,7 @@ const Game = () => {
     const gameBoard = gameState.map((row, i) => {
         
         const handleClick = () => {
-                    console.log(`Click happend ${i}`)
+                    console.log(`Click happened ${i}`)
                     const squareValue = gameState
                     squareValue[i] = 'X'
                     console.log(squareValue[i])
