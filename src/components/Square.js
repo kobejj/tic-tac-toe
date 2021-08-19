@@ -1,9 +1,11 @@
+import './Game.css';
+
 const Square = (props) => {
 
     return (
         <div>
-            <button className="ui square" onClick={props.onClick}>
-                Square {props.value}
+            <button className="square" onClick={props.onClick}>
+                {props.value}
             </button>
         </div>
     )
