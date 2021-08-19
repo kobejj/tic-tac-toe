@@ -10,6 +10,8 @@ const Game = () => {
         [null, null, null],
     ]);
 
+    const [nextIsX, setNextIsX] = useState(true)
+
     const gameBoard = gameState.map((row, i) => {
         
 
@@ -21,9 +23,10 @@ const Game = () => {
                         const handleClick = () => {
                             console.log(`Click happened ${i}-${j}`)
                             const board = [...gameState]
-                            board[i][j] = 'X';
+                            board[i][j] = nextIsX ? 'X' : 'O'
                             console.log(board[i][j])
                             setGameState(board)
+                            setNextIsX(!nextIsX)
                         }
 
                         return (
@@ -44,7 +47,7 @@ const Game = () => {
     return (
         
         <div>
-            <h3>Tic-Tak-Toe</h3>
+            <h3>Tic-Tak-Toe: Next Player is {nextIsX ? 'X' : 'O'}</h3>
             <div>
                 {gameBoard[0]}
             </div>
