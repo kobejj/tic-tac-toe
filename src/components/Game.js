@@ -11,13 +11,15 @@ const Game = () => {
     ]);
     const [nextIsX, setNextIsX] = useState(true)
     const [checkGameover, setCheckGameover] = useState(false)
-    const [alreadyClicked, setAlreadyClicked] = useState(false)
 
 
+    const onClickReset = () => {
+        console.log('Game is reset')
+        
+    }
 
     const gameBoard = gameState.map((row, i) => {
         
-
         return (
             <div key={i}>
                 {
@@ -25,6 +27,10 @@ const Game = () => {
                         
 
                         const handleClick = () => {
+                            console.log(gameState[i][j])
+                            if(gameState[i][j] === 'X' || gameState[i][j] ==='O') {
+                                return
+                            }
                             console.log(`Click happened ${i}-${j}`)
                             const board = [...gameState]
                             board[i][j] = nextIsX ? 'X' : 'O'
@@ -50,15 +56,8 @@ const Game = () => {
                                 return setCheckGameover(true)
                             }
                             gameover()
-                            const clickedBefore = () => {
-                                if(board[0][1] === 'X' || 'O')
-                                return setAlreadyClicked(true)
-                            }
-                            clickedBefore()
                         }
                         
-
-
 
                         return (
                             <Square
@@ -72,6 +71,8 @@ const Game = () => {
                 
 
             </div>
+
+            
         )
     })
 
@@ -80,10 +81,7 @@ const Game = () => {
         <div>
             <h3>Tic-Tak-Toe: Next Player is {nextIsX ? 'X' : 'O'}</h3>
             {console.log(checkGameover)}
-            {console.log(alreadyClicked)}
-            <h3 className="win">{!checkGameover ? '' : `Player ${!nextIsX ? 'X' : 'O'} won!`}</h3>
-            <h3>{!alreadyClicked ? '' : 'This square is clicked already.'}</h3>
-            
+        
             <div>
                 {gameBoard[0]}
             </div>
@@ -95,6 +93,9 @@ const Game = () => {
             <div>
                 {gameBoard[2]}
             </div>
+            <br/>
+            <button onClick={onClickReset}>Reset</button>
+            <h3 className="win">{!checkGameover ? '' : `Player ${!nextIsX ? 'X' : 'O'} won!`}</h3>  
         </div>
     )
 }
