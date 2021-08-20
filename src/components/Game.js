@@ -32,7 +32,21 @@ const Game = () => {
                             setGameState(board)
                             setNextIsX(!nextIsX)
                             const gameover = () => {
-                                if(board[0][0] === 'X')
+                                if(board[0][0] && board[0][0] === board[0][1] && board[0][0] === board[0][2])
+                                return setCheckGameover(true)
+                                else if(board[1][0] && board[1][0] === board[1][1] && board[1][0] === board[1][2])
+                                return setCheckGameover(true)
+                                else if(board[2][0] && board[2][0] === board[2][1] && board[2][0] === board[2][2])
+                                return setCheckGameover(true)
+                                else if(board[0][0] && board[0][0] === board[1][0] && board[0][0] === board[2][0])
+                                return setCheckGameover(true)
+                                else if(board[0][1] && board[0][1] === board[1][1] && board[0][1] === board[2][1])
+                                return setCheckGameover(true)
+                                else if(board[0][2] && board[0][2] === board[1][2] && board[0][2] === board[2][2])
+                                return setCheckGameover(true)
+                                else if(board[0][0] && board[0][0] === board[1][1] && board[0][0] === board[2][2])
+                                return setCheckGameover(true)
+                                else if(board[0][2] && board[0][2] === board[1][1] && board[0][2] === board[2][0])
                                 return setCheckGameover(true)
                             }
                             gameover()
@@ -67,7 +81,7 @@ const Game = () => {
             <h3>Tic-Tak-Toe: Next Player is {nextIsX ? 'X' : 'O'}</h3>
             {console.log(checkGameover)}
             {console.log(alreadyClicked)}
-            <h3>{!checkGameover ? '' : 'You won!'}</h3>
+            <h3 className="win">{!checkGameover ? '' : `Player ${!nextIsX ? 'X' : 'O'} won!`}</h3>
             <h3>{!alreadyClicked ? '' : 'This square is clicked already.'}</h3>
             
             <div>
