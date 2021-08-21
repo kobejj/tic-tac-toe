@@ -2,20 +2,26 @@ import './Game.css';
 import Square from './Square';
 import React, { useState } from 'react';
 
+const initialState = () => {
+    return [
+        [null, null, null],
+        [null, null, null],
+        [null, null, null],
+    ]}
+
 const Game = () => {
 
-    const [gameState, setGameState] = useState([
-        [null, null, null],
-        [null, null, null],
-        [null, null, null],
-    ]);
+    const [gameState, setGameState] = useState(initialState);
     const [nextIsX, setNextIsX] = useState(true)
     const [checkGameover, setCheckGameover] = useState(false)
 
 
+
     const onClickReset = () => {
         console.log('Game is reset')
-        
+        console.log(initialState)
+        setGameState(initialState)
+        setCheckGameover(false)
     }
 
     const gameBoard = gameState.map((row, i) => {
@@ -24,7 +30,7 @@ const Game = () => {
             <div key={i}>
                 {
                     row.map((squareValue, j) => {
-                        
+
 
                         const handleClick = () => {
                             console.log(gameState[i][j])
